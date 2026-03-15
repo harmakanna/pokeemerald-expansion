@@ -3032,7 +3032,10 @@ void TryToAddMoveInfoWindow(void)
 
     if (gBattleStruct->moveInfoSpriteId == MAX_SPRITES)
     {
-        gBattleStruct->moveInfoSpriteId = CreateSprite(&sSpriteTemplate_MoveInfoWindow, LAST_BALL_WIN_X_0, LAST_USED_WIN_Y + 36, 6);
+        if(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+            gBattleStruct->moveInfoSpriteId = CreateSprite(&sSpriteTemplate_MoveInfoWindow, LAST_BALL_WIN_X_0, LAST_USED_WIN_Y + 32, 6);
+        else
+            gBattleStruct->moveInfoSpriteId = CreateSprite(&sSpriteTemplate_MoveInfoWindow, LAST_BALL_WIN_X_0, LAST_USED_WIN_Y + 36, 6);
         gSprites[gBattleStruct->moveInfoSpriteId].sHide = FALSE;
     }
 }
@@ -3045,7 +3048,10 @@ void TryToAddMovePreviewWindow(void)
 
     if (gBattleStruct->movePreviewSpriteId == MAX_SPRITES)
     {
-        gBattleStruct->movePreviewSpriteId = CreateSprite(&sSpriteTemplate_MovePreviewWindow, LAST_BALL_WIN_X_0, LAST_USED_WIN_Y + 36, 6);
+        if(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+            gBattleStruct->movePreviewSpriteId = CreateSprite(&sSpriteTemplate_MovePreviewWindow, LAST_BALL_WIN_X_0, LAST_USED_WIN_Y + 32, 6);
+        else
+            gBattleStruct->movePreviewSpriteId = CreateSprite(&sSpriteTemplate_MovePreviewWindow, LAST_BALL_WIN_X_0, LAST_USED_WIN_Y + 36, 6);
         gSprites[gBattleStruct->movePreviewSpriteId].sHide = FALSE;
         gSprites[gBattleStruct->moveInfoSpriteId].sHide = TRUE;
     }
